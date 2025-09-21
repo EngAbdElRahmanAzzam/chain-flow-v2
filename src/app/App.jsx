@@ -1,6 +1,8 @@
 
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
+
 import { Provider } from 'react-redux';
 import { store } from '../Shared/redux/store';
 import { ProtectedRoute } from "../ProtectedRoute/ProtectedRoute";
@@ -41,6 +43,8 @@ import UserManagementPage from './../Features/Admin/UserManagement/pages/UserMan
 import Admin from "../Features/Admin/Admin";
 
 export default function App() {
+  const queryClient = useMemo(() => new QueryClient(), []);
+
   const Routes = createBrowserRouter([
     { path: "" , element: <Home />},
     { path: "/auth" , element: <AuthLayout /> ,  children: [
@@ -85,7 +89,9 @@ export default function App() {
 
   return (
     <Provider store={store}>
-      <RouterProvider router={Routes} />
+      <QueryClientProvider client={queryClient}>
+          <RouterProvider router={Routes} />
+      </QueryClientProvider>
     </Provider>
   );
 }
