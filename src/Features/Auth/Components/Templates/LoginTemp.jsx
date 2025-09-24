@@ -7,23 +7,23 @@ import FormCheck from "../Atoms/FormCheck";
 import FormPgh from "../Atoms/FormPgh";
 import { useAuthRedux } from '../../../../Shared/hooks/useAuthRedux';
 import { login } from '../../../../Shared/redux/slices/authSlice';
+import { axiosInstance } from "../../../../server/config.axios";
+import { LocalStorageAuth } from "../../../../Shared/Utils/localStorageAuth";
 
 
 export default function LoginTemp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();
-  const { loading, error, token, dispatch } = useAuthRedux();
 
-  useEffect(() => {
-    if (token) {
-      navigate('/');
-    }
-  }, [token, navigate]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(login({ email, password }));
+    try{
+      const response = await axiosInstance.post('/auth/login', {email, password})
+      LocalStorageAuth.store(response.data)
+    }catch(e){
+      console.log("error")
+    }
   };
 
   return (
@@ -42,11 +42,11 @@ export default function LoginTemp() {
           value={password}
         />
         <FormCheck />
-        <FormButton nameBtn={loading ? "Logging In..." : "Log In"} disabled={loading} />
+        <FormButton nameBtn={ "Log In"}  />
         <FormPgh pgh="Don't have an account?" formNav=" Sign Up" to="/auth/signup" />
       </form>
 
-      {error && <p style={{ color: "red" }}>{typeof error === 'string' ? error : error?.message}</p>}
+      {/* {error && <p style={{ color: "red" }}>{typeof error === 'string' ? error : error?.message}</p>} */}
     </>
   );
 }

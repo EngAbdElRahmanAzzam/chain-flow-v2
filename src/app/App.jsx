@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 
 import { Provider } from 'react-redux';
 import { store } from '../Shared/redux/store';
-import { ProtectedRoute } from "../ProtectedRoute/ProtectedRoute";
+import { ProtectedRoute } from "../Shared/Components/Atoms/ProtectedRoute";
 import "../App.css";
 import AuthLayout from "../Features/Auth/AuthLayout";
 import SignupTemp from "../Features/Auth/Components/Templates/SignupTemp";

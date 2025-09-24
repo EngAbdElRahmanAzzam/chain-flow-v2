@@ -1,9 +1,9 @@
-class LocalStorageAuth{
+export class LocalStorageAuth{
     static credentialsKey = 'user'
 
     static store(data) {
         let credentials = JSON.stringify(data)
-        localStorage.setItem(credentialsKey, credentials)
+        localStorage.setItem("user", credentials)
     }
 
     static get(data) {
