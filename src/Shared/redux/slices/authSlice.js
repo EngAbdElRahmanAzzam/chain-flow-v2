@@ -1,12 +1,13 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import api from '../../api/axios';
+import { axiosInstance } from '../../../server/config.axios';
+
 
 // Register
 export const register = createAsyncThunk(
   'auth/register',
   async (formData, { rejectWithValue }) => {
     try {
-      const res = await api.post('/auth/register', formData, {
+      const res = await axiosInstance.post('/auth/register', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       return res.data;
@@ -21,7 +22,7 @@ export const login = createAsyncThunk(
   'auth/login',
   async (credentials, { rejectWithValue }) => {
     try {
-      const res = await api.post('/auth/login', credentials);
+      const res = await axiosInstance.post('/auth/login', credentials);
       if (res.data.token) {
         localStorage.setItem('token', res.data.token);
       }
@@ -37,7 +38,7 @@ export const logout = createAsyncThunk(
   'auth/logout',
   async (_, { rejectWithValue }) => {
     try {
-      await api.post('/auth/logout');
+      await axiosInstance.post('/auth/logout');
       localStorage.removeItem('token');
       return true;
     } catch (err) {

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { inventoryData } from '../utils/inventoryData';
 
 export function useInventoryPagination(rows = 9) {
+  
   const [page, setPage] = useState(1);
   const total = inventoryData.length;
   const totalPages = Math.ceil(total / rows);

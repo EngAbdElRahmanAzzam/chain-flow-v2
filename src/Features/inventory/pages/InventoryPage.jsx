@@ -4,9 +4,16 @@ import { InventoryTable } from '../components/organisms/InventoryTable';
 import { useInventoryPagination } from '../hooks/useInventoryPagination';
 import DetailsCard from '../../../Shared/Components/Molecules/DetailsCard';
 import { AnalyticsIcon, ExclamIcon, InvIcon, TrellaIcon } from '../../../assets/Icons/SVG';
+import { getAllInventory_API } from '../../../server/services';
+import { useQuery } from '@tanstack/react-query';
 
 
 export default function InventoryPage() {
+  const { isLoading , data: activity , isError } = useQuery({
+    queryKey: [`activity}`],
+    queryFn: () => getAllInventory_API()
+});
+console.log(activity)
   const { currentData, total, startIndex, page, setPage, totalPages } = useInventoryPagination();
 
   return <>
@@ -17,8 +24,11 @@ export default function InventoryPage() {
         <DetailsCard name="Incoming Shipments" count="12" icon={<TrellaIcon fill={'#5C8DFF'} />} />
         <DetailsCard name="Total Value" count="$1.2M" icon={<AnalyticsIcon stroke='#5C8DFF'/>} />
       </div>
+
       <InventoryToolbar onSearch={(q) => console.log('searching', q)} />
+
       <InventoryTable data={currentData} />
+
       {/* Pagination controls */}
       <div className="d-flex justify-content-between align-items-center p-3">
         <small className="text-muted">

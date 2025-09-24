@@ -1,1 +1,0 @@
-export const BASE_URL = 'https://supplychain-e11a.onrender.com'
