@@ -1,5 +1,7 @@
+//client imports
 import { axiosInstance } from "./config.axios";
 
-export function getAllInventory_API(limit=10,page=1,){
-    axiosInstance.get(`/inventory?page=${page}&limit=${limit}`)
+export async function getAllInventory_API(limit=10,page=1,){
+    const {data} = await axiosInstance.get(`/inventory?page=${page}&limit=${limit}`)
+    return data
 }

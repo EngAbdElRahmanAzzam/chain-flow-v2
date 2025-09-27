@@ -9,12 +9,13 @@ import { useQuery } from '@tanstack/react-query';
 
 
 export default function InventoryPage() {
-  const { isLoading , data: activity , isError } = useQuery({
-    queryKey: [`activity}`],
-    queryFn: () => getAllInventory_API()
-});
-console.log(activity)
+  const { isLoading , data: inventory , isError } = useQuery({
+      queryKey: ["inventory"],
+      queryFn: () => getAllInventory_API()
+  });
+  
   const { currentData, total, startIndex, page, setPage, totalPages } = useInventoryPagination();
+
 
   return <>
       {/* Summary Cards */}
@@ -27,7 +28,7 @@ console.log(activity)
 
       <InventoryToolbar onSearch={(q) => console.log('searching', q)} />
 
-      <InventoryTable data={currentData} />
+      <InventoryTable data={inventory} isLoading={isLoading} />
 
       {/* Pagination controls */}
       <div className="d-flex justify-content-between align-items-center p-3">

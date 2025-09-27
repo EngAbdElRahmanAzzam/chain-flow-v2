@@ -1,15 +1,19 @@
+//third-part
 import axios from 'axios';
 
-const BASE_URL = 'https://supplychain-e11a.onrender.com/api';
+//client imports
+import { LocalStorageAuth } from '../Shared/Utils/localStorageAuth';
+import { API_HOST } from '.';
+
 
 export const axiosInstance = axios.create({
-    baseURL: BASE_URL,
+    baseURL: API_HOST,
     withCredentials: true,
 });
 
 // Add token to headers if available
 axiosInstance.interceptors.request.use((config) => {
-    const token = localStorage.getItem('token');
+    const token = LocalStorageAuth.getToken();
     if (token) {
         config.headers['Authorization'] = `Bearer ${token}`;
     }

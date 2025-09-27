@@ -2,8 +2,9 @@ import { StatusBadge } from '../atoms/StatusBadge';
 import CheckBoxInput from './../../../../Shared/Components/Atoms/CheckBoxInput';
 import { useState } from 'react';
 
-export function InventoryTable({ data }) {
-
+export function InventoryTable({ data , isLoading , isError = null }) {
+  if(isLoading)
+    return <>Loading ....</>
   const [select, setSelect] = useState([]);
 
   // Handle select item
@@ -23,7 +24,7 @@ export function InventoryTable({ data }) {
         <thead className="table-primary">
           <tr>
             <th>
-              <CheckBoxInput change={SelectAll} checked={select.length === data.length && data.length > 0} />
+              {/* <CheckBoxInput change={SelectAll} checked={select.length === data.length && data.length > 0} /> */}
             </th>
             <th>Item code</th>
             <th>Item name</th>
@@ -39,20 +40,20 @@ export function InventoryTable({ data }) {
         </thead>
 
         <tbody>
-          {data.map((item) => <tr key={item.id}>
+          {data.data.map((item) => <tr key={item.id}>
               <td>
                 <CheckBoxInput change={() => SelectItem(item.id)} checked={select.includes(item.id)} />
               </td>
               <td>{item.code}</td>
-              <td>{item.name}</td>
-              <td>{item.serial}</td>
-              <td>{item.category}</td>
+              <td>{item.product.productName}</td>
+              <td>{item.product.sku}</td>
+              {/*<td>{item.category}</td>
               <td>{item.stock}</td>
-              <td>{item.unit}</td>
-              <td>{item.price}</td>
+              <td>{item.product.unit}</td>
+              <td>{item.product.unitPrice}</td>
               <td><StatusBadge status={item.status} /></td>
               <td>{item.location}</td>
-              <td>{item.updated}</td>
+              <td>{item.updated}</td> */}
               </tr>
             )}
         </tbody>
