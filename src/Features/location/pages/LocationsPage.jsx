@@ -3,7 +3,7 @@ import { data } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 
 //client-imports
-import LocationsToolbar from '../components/organisms/locationsToolbar';
+import LocationsToolbar from '../components/organisms/LocationsToolbar';
 import LocationsTable from '../components/organisms/LocationsTable';
 import { Location_API } from '../../../server/services';
 
