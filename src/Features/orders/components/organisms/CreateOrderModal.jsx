@@ -1,5 +1,3 @@
-import React from 'react';
-
 const CreateOrderModal = ({ newOrder, handleCloseModal, handleInputChange, handleSubmitOrder }) => (
   <div className="modal d-block m-0" style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
     <div className="modal-dialog">
