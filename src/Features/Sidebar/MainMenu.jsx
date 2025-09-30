@@ -16,6 +16,11 @@ export default function MainMenu() {
           </NavLink>
         </li>
         <li>
+          <NavLink to="locations" className="nav-link d-flex align-items-center gap-2">
+            <InventoryIcon fill="currentColor" /> Locations
+          </NavLink>
+        </li>
+        <li>
           <NavLink to="shipments" className="nav-link d-flex align-items-center gap-2">
             <TrellaIcon fill="currentColor" /> Shipments
           </NavLink>

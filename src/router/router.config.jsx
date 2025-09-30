@@ -17,6 +17,7 @@ import InventoryPage from '../Features/Inventory/pages/InventoryPage.jsx';
 import ShipmentsPage from "../Features/Shipments/pages/ShipmentsPage.jsx";
 import OrdersPage from "../Features/Orders/pages/OrdersPage.jsx";
 import DocumentsPage from '../Features/Documents/pages/DocumentsPage.jsx';
+import LocationsPage from '../Features/location/pages/LocationsPage.jsx';
 import PartnersPage from '../Features/Partners/pages/PartnersPage.jsx';
 import EmployeesPage from "../Features/Employees/pages/EmployeesPage.jsx";
 import EmployeeInfo from "../Features/EmployeeInfo/EmployeeInfo.jsx";
@@ -41,7 +42,7 @@ import Admin from "../Features/Admin/Admin.jsx";
 
 
 export const routes = createBrowserRouter([
-    { path: "" , element: <Home />},
+    { path: "LocationsPage" , element: <Home />},
     { path: "/auth" , element: <AuthLayout /> ,  children: [
         { path: "login", element: <LoginTemp/> },
         { path: "signup", element: <SignupTemp/> },
@@ -54,6 +55,7 @@ export const routes = createBrowserRouter([
         { path: "shipments", element: <ProtectedRoute><ShipmentsPage /></ProtectedRoute> },
         { path: "orders", element: <ProtectedRoute><OrdersPage /></ProtectedRoute> },
         { path: "documents", element: <ProtectedRoute><DocumentsPage /></ProtectedRoute> },
+        { path: "locations", element: <ProtectedRoute><LocationsPage /></ProtectedRoute> },
         { path: "partners", element: <ProtectedRoute><PartnersPage /></ProtectedRoute> },
         { path: "employees", element: <ProtectedRoute><EmployeesPage /></ProtectedRoute> },
         { path: "notifications", element: <ProtectedRoute><NotificationsPage /></ProtectedRoute> },

@@ -27,7 +27,7 @@ export default function DocumentsToolbar () {
   return (
     <div className="row align-items-center my-2">
       <div className="col-lg-5 col-12">
-        <h4 className="PrimaryText">Documents Management</h4>
+        <h4 className="PrimaryText">Locations Management</h4>
       </div>
       <div className="col-lg-7 col-12">
         <div className="d-flex justify-content-between">

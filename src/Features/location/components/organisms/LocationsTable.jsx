@@ -1,19 +1,24 @@
 
 import useDocuments from '../../hooks/useDocuments';
 
-export default function DocumentsTable () {
+export default function LocationsTable ({data, isLoading , isError}) {
   const { documents , SelectDocument, handleSelectAll, getFileIcon , selectedDocuments } = useDocuments();
+  const qr= []
+  console.log(qr.length)
+  //render
+  if(isLoading)
+    return <>loading...</>
 
-  return <>
+  if(isError)
+    return <>Error wait...</>
+
+  return (<>
     {/* Documents Table */}
     <div className="table-responsive rounded-3 border">
       <table className="table table-hover">
         <thead className='table-primary'>
           <tr className='smallSize'>
-            <th>
-              <input type="checkbox" className="form-check-input fs-6" onChange={handleSelectAll}
-                checked={selectedDocuments.length === documents.length && documents.length > 0} />
-            </th>
+            <th></th>
             <th>Name</th>
             <th>Owner</th>
             <th>Last Modified</th>
@@ -21,6 +26,7 @@ export default function DocumentsTable () {
             <th></th>
           </tr>
         </thead>
+
         <tbody>
           {documents.map((document) => (
             <tr key={document.id}>
@@ -57,7 +63,8 @@ export default function DocumentsTable () {
       </table>
     </div>
   </>
-};
+  )
+}
 
 
 
