@@ -1,65 +1,45 @@
 
-import useDocuments from '../../hooks/useDocuments';
-
 export default function LocationsTable ({data, isLoading , isError}) {
-  const { documents , SelectDocument, handleSelectAll, getFileIcon , selectedDocuments } = useDocuments();
-  const qr= []
-  console.log(qr.length)
   //render
   if(isLoading)
     return <>loading...</>
 
   if(isError)
     return <>Error wait...</>
-
-  return (<>
-    {/* Documents Table */}
+    
+  console.log(data)
+  return (
+  <>
     <div className="table-responsive rounded-3 border">
       <table className="table table-hover">
         <thead className='table-primary'>
           <tr className='smallSize'>
             <th></th>
-            <th>Name</th>
-            <th>Owner</th>
-            <th>Last Modified</th>
-            <th>File Size</th>
-            <th></th>
+            <th>Location Name</th>
+            <th>Type</th>
+            <th>Created Date</th>
+            <th>Last Updated</th>
           </tr>
         </thead>
 
-        <tbody>
-          {documents.map((document) => (
-            <tr key={document.id}>
+        {/* <tbody>
+          {data.data.map((location) => (
+            <tr key={location.id}>
               <td>
                 <input type="checkbox" className="form-check-input"
-                  checked={selectedDocuments.includes(document.id)} 
-                  onChange={() => SelectDocument(document.id)} />
+                  //checked={selectedLocation.includes(location._id)} 
+                 // onChange={() => SelectDocument(location._id)}
+                  />
               </td>
-              <td>
-                <div className="d-flex align-items-center gap-3">
-                  {getFileIcon(document.type)}
-                  <span>{document.name}</span>
-                </div>
-              </td>
-              <td>
-                <div className="d-flex align-items-center">
-                  <img className="rounded-circle"/>
-                  <span>{document.owner}</span>
-                </div>
-              </td>
-              <td>{document.lastModified}</td>
-              <td>{document.fileSize}</td>
-              <td>
-                <button className="btn p-1 text-muted border-0">
-                  <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 
-                      0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
-                  </svg>
-                </button>
-              </td>
+
+              <td>{location.locationName}</td>
+              <td>{location.type}</td>
+              <td>{location.createdAt}</td>
+              <td>{location.updatedAt}</td>
             </tr>
           ))}
-        </tbody>
+        </tbody> */}
+
       </table>
     </div>
   </>

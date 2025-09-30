@@ -3,7 +3,7 @@
 import { DownloadIcon, FilterIcon, FolderPlsIcon, PlusIcon } from '../../../../assets/Icons/SVG';
 import DashBtn from '../../../../Shared/Components/Atoms/DashBtn';
 
-export default function DocumentsToolbar () {
+export default function LocationsToolbar () {
 
 
   const UploadDocument = () => {

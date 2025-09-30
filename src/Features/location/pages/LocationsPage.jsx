@@ -3,7 +3,7 @@ import { data } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 
 //client-imports
-import LocationsToolbar from '../components/organisms/LocationsToolbar';
+import LocationsToolbar from '../components/organisms/locationsToolbar';
 import LocationsTable from '../components/organisms/LocationsTable';
 import { Location_API } from '../../../server/services';
 
@@ -13,7 +13,7 @@ export default function LocationsPage () {
     queryKey: ["inventory"],
     queryFn: () => Location_API.getAll()
   });
-
+  console.log(locations)
   return (
   <>
     <LocationsToolbar />

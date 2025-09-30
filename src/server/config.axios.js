@@ -8,7 +8,6 @@ import { API_HOST } from '.';
 
 export const axiosInstance = axios.create({
     baseURL: API_HOST,
-    withCredentials: true,
 });
 
 // Add token to headers if available
