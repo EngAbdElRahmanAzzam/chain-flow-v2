@@ -1,52 +1,64 @@
-
-import { useState, useEffect } from "react";
+//core
+import {useState} from 'react'
+//third-part
 import { useNavigate } from "react-router-dom";
+import {Formik, Form} from "formik"
+
+//client
+import {schemaLogin} from "../../../../Shared/validations/login.js"
+import { axiosInstance } from "../../../../Shared/server/config.axios";
+import { Auth_API } from "../../../../Shared/server/services.js";
+import { LocalStorageAuth } from "../../../../Shared/Utils/localStorageAuth";
 import FormButton from "../Atoms/FormButton";
-import FormInputs from "../Atoms/FormInputs";
+import FormInput from "../Atoms/FormInputs";
 import FormCheck from "../Atoms/FormCheck";
 import FormPgh from "../Atoms/FormPgh";
-import { useAuthRedux } from '../../../../Shared/hooks/useAuthRedux';
-import { login } from '../../../../Shared/redux/slices/authSlice';
-import { axiosInstance } from "../../../../server/config.axios";
-import { LocalStorageAuth } from "../../../../Shared/Utils/localStorageAuth";
 
+export default function LoginTemp(){
+    const [isloading, updateIsLoading] = useState(false)
 
-export default function LoginTemp() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try{
-      const response = await axiosInstance.post('/auth/login', {email, password})
-      LocalStorageAuth.store(response.data)
-    }catch(e){
-      console.log("error")
+    const initalValue = {
+      email:"",
+      password:""
     }
-  };
 
-  return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <FormInputs
-          type="text"
-          placeholder="User Name"
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
-        />
-        <FormInputs
-          type="password"
-          placeholder="Password"
-          onChange={(e) => setPassword(e.target.value)}
-          value={password}
-        />
-        <FormCheck />
-        <FormButton nameBtn={ "Log In"}  />
-        <FormPgh pgh="Don't have an account?" formNav=" Sign Up" to="/auth/signup" />
-      </form>
+    const handleSubmit = async (values)=> {
+        try{
+          updateIsLoading(true)
+          const response = await Auth_API.login()
+        }catch(e){
 
-      {/* {error && <p style={{ color: "red" }}>{typeof error === 'string' ? error : error?.message}</p>} */}
-    </>
-  );
+        }
+        updateIsLoading(false)
+    }
+
+    return(
+        <div>
+          <Formik
+            initialValues={initalValue}
+            onSubmit={handleSubmit}
+            validationSchema={schemaLogin}
+          >
+              <Form>
+
+                  <FormInput 
+                    name="email" 
+                    type="email" 
+                    placeholder="Enter Your Email"
+                  />
+
+                  <FormInput 
+                    name="email" 
+                    type="email" 
+                    placeholder="Enter Your Email"
+                  />
+
+                  <FormCheck />
+                  <FormButton>Login</FormButton>
+                  <FormPgh pgh="Don't have an account?" formNav=" Sign Up" to="/auth/signup" />
+              </Form>
+          </Formik>
+        </div>
+    )
 }
+

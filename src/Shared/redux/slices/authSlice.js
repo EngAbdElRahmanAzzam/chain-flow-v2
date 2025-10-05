@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { axiosInstance } from '../../../server/config.axios';
+import { axiosInstance } from "../../server/config.axios";
 
 
 // Register

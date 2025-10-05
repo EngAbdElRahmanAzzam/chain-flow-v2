@@ -1,11 +1,16 @@
+//third-party
+import { useQuery } from '@tanstack/react-query';
+
+//client 
+import { getAllInventory_API } from '../../../Shared/server/services';
 
 import { InventoryToolbar } from '../components/organisms/InventoryToolbar';
+import { AnalyticsIcon, ExclamIcon, InvIcon, TrellaIcon } from '../../../assets/Icons/SVG';
 import { InventoryTable } from '../components/organisms/InventoryTable';
 import { useInventoryPagination } from '../hooks/useInventoryPagination';
 import DetailsCard from '../../../Shared/Components/Molecules/DetailsCard';
-import { AnalyticsIcon, ExclamIcon, InvIcon, TrellaIcon } from '../../../assets/Icons/SVG';
-import { getAllInventory_API } from '../../../server/services';
-import { useQuery } from '@tanstack/react-query';
+
+
 
 
 export default function InventoryPage() {

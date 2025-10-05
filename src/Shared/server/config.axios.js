@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 //client imports
-import { LocalStorageAuth } from '../Shared/Utils/localStorageAuth';
+import { LocalStorageAuth } from '../Utils/localStorageAuth';
 import { API_HOST } from '.';
 
 

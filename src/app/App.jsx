@@ -9,7 +9,7 @@ import { Provider } from 'react-redux';
 //client imports
 import { store } from '../Shared/redux/store';
 import "../App.css";
-import { routes } from '../router/router.config';
+import { routes } from '../Shared/router/router.config';
 
 export default function App() {
   const queryClient = useMemo(() => new QueryClient(), []);

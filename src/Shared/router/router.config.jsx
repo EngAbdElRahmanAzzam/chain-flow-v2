@@ -2,43 +2,43 @@
 import { createBrowserRouter } from "react-router-dom";
 
 //client imports
-import { ProtectedRoute } from  "../Shared/Components/Atoms/ProtectedRoute.jsx"
+import { ProtectedRoute } from  "../Components/Atoms/ProtectedRoute.jsx"
 
-import AuthLayout from "../Features/Auth/AuthLayout.jsx";
-import SignupTemp from "../Features/Auth/Components/Templates/SignupTemp.jsx";
-import LoginTemp from "../Features/Auth/Components/Templates/LoginTemp.jsx";
-import Verify from "../Features/Auth/Verify.jsx";
-import Notfound from "../Shared/Notfound/Notfound.jsx"
-import Home from "../Features/Home/Home.jsx";
-import Layout from "../Features/Layout/Layout.jsx";
+import AuthLayout from "../../Features/Auth/AuthLayout.jsx";
+import SignupTemp from "../../Features/Auth/Components/Templates/SignupTemp.jsx";
+import LoginTemp from "../../Features/Auth/Components/Templates/LoginTemp.jsx";
+import Verify from "../../Features/Auth/Verify.jsx";
+import Notfound from "../Notfound/Notfound.jsx"
+import Home from "../../Features/Home/Home.jsx";
+import Layout from "../../Features/Layout/Layout.jsx";
 
-import DashboardPage from "../Features/Dashboard/pages/DashboardPage.jsx";
-import InventoryPage from '../Features/Inventory/pages/InventoryPage.jsx';
-import ShipmentsPage from "../Features/Shipments/pages/ShipmentsPage.jsx";
-import OrdersPage from "../Features/Orders/pages/OrdersPage.jsx";
-import DocumentsPage from '../Features/Documents/pages/DocumentsPage.jsx';
-import LocationsPage from '../Features/location/pages/LocationsPage.jsx';
-import PartnersPage from '../Features/Partners/pages/PartnersPage.jsx';
-import EmployeesPage from "../Features/Employees/pages/EmployeesPage.jsx";
-import EmployeeInfo from "../Features/EmployeeInfo/EmployeeInfo.jsx";
-import EmployeeChat from "../Features/EmployeeChat/employeeChat.jsx";
+import DashboardPage from "../../Features/Dashboard/pages/DashboardPage.jsx";
+import InventoryPage from '../../Features/Inventory/pages/InventoryPage.jsx';
+import ShipmentsPage from "../../Features/Shipments/pages/ShipmentsPage.jsx";
+import OrdersPage from "../../Features/Orders/pages/OrdersPage.jsx";
+import DocumentsPage from '../../Features/Documents/pages/DocumentsPage.jsx';
+import LocationsPage from '../../Features/location/pages/LocationsPage.jsx';
+import PartnersPage from '../../Features/Partners/pages/PartnersPage.jsx';
+import EmployeesPage from "../../Features/Employees/pages/EmployeesPage.jsx";
+import EmployeeInfo from "../../Features/EmployeeInfo/EmployeeInfo.jsx";
+import EmployeeChat from "../../Features/EmployeeChat/employeeChat.jsx";
 
-import NotificationsPage from "../Features/Notifications/pages/NotificationsPage.jsx";
-import Support from '../Features/support/SupportPage.jsx';
-import Logout from "../Features/logout/Logout.jsx";
+import NotificationsPage from "../../Features/Notifications/pages/NotificationsPage.jsx";
+import Support from '../../Features/support/SupportPage.jsx';
+import Logout from "../../Features/logout/Logout.jsx";
 
-import Settings from "../Features/Settings/Settings.jsx";
-import GeneralPage from "../Features/Settings/general/pages/GeneralPage.jsx";
-import UserProfilePage from '../Features/Settings/userProfile/pages/UserProfilePage.jsx';
-import SecurityPage from '../Features/Settings/security/pages/SecurityPage.jsx';
-import NotificationsSettingsPage from "../Features/Settings/notificationSettings/pages/NotificationSettingsPage.jsx";
-import IntegrationsPage from "../Features/Settings/integrations/pages/IntegrationsPage.jsx";
-import BillingSubscription from "../Features/Settings/BillingSubscription/BillingSubscription.jsx";
-import AdminDashboardPage from '../Features/Admin/AdminDashboard/pages/AdminDashboardPage.jsx';
-import PlansPage from '../Features/Admin/Plans/pages/PlansPage.jsx';
-import CompaniesPage from '../Features/Admin/Companies/pages/CompaniesPage.jsx';
-import UserManagementPage from '../Features/Admin/UserManagement/pages/UserManagementPage.jsx';
-import Admin from "../Features/Admin/Admin.jsx";
+import Settings from "../../Features/Settings/Settings.jsx";
+import GeneralPage from "../../Features/Settings/general/pages/GeneralPage.jsx";
+import UserProfilePage from '../../Features/Settings/userProfile/pages/UserProfilePage.jsx';
+import SecurityPage from '../../Features/Settings/security/pages/SecurityPage.jsx';
+import NotificationsSettingsPage from "../../Features/Settings/notificationSettings/pages/NotificationSettingsPage.jsx";
+import IntegrationsPage from "../../Features/Settings/integrations/pages/IntegrationsPage.jsx";
+import BillingSubscription from "../../Features/Settings/BillingSubscription/BillingSubscription.jsx";
+import AdminDashboardPage from '../../Features/Admin/AdminDashboard/pages/AdminDashboardPage.jsx';
+import PlansPage from '../../Features/Admin/Plans/pages/PlansPage.jsx';
+import CompaniesPage from '../../Features/Admin/Companies/pages/CompaniesPage.jsx';
+import UserManagementPage from '../../Features/Admin/UserManagement/pages/UserManagementPage.jsx';
+import Admin from "../../Features/Admin/Admin.jsx";
 
 
 export const routes = createBrowserRouter([

@@ -1,19 +1,14 @@
-import React from 'react';
+//third-party
+import {ErrorMessage, Field} from "formik"
 
-
-function FormInputs({ type = "", name = "", value = "", placeholder = "", onChange }) {
+function FormInput({name ,placeholder, ...props }) {
+  const Error = ({children}) => <p className="invalid-feedback">{children}</p>
   return (
     <div className='mb-3'>
-      <input
-        type={type}
-        name={name}
-        value={value}
-        className="form-control"
-        placeholder={placeholder}
-        onChange={onChange}
-      />
+      <Field name={name} placeholder={placeholder} className="form-control" {...props}/>
+      <ErrorMessage name={name} component={Error}/>
     </div>
   );
 }
 
-export default FormInputs;
+export default FormInput;

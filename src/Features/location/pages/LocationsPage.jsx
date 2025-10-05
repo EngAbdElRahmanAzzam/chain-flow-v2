@@ -5,7 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 //client-imports
 import LocationsToolbar from '../components/organisms/locationsToolbar';
 import LocationsTable from '../components/organisms/LocationsTable';
-import { Location_API } from '../../../server/services';
+import { Location_API } from '../../../Shared/server/services';
 
 
 export default function LocationsPage () {

@@ -1,14 +1,13 @@
 import React from 'react';
 
-export default function FormButton({ nameBtn, onClick , disabled }) {
+export default function FormButton({ children, ...props }) {
   return (
-    <button
-      type="submit"
-      onClick={onClick}
-      disabled={disabled}
-      className="btn btn-primary w-100"
-    >
-      {nameBtn}
-    </button>
+      <button
+        type="submit"
+        className="btn btn-primary w-100"
+        {...props}
+      >
+        {children}
+      </button>
   );
 }
